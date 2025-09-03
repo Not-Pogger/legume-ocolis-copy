@@ -10,7 +10,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,10 +48,8 @@ export default function Navigation() {
   return (
     <>
       {/* Main Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-          : 'bg-black/20 backdrop-blur-sm'
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md shadow-lg ${
+        isScrolled ? 'bg-white/90' : 'bg-white/65'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -67,11 +65,9 @@ export default function Navigation() {
                   className="rounded-full object-cover"
                 />
               </div>
-              <div className={`transition-colors duration-300 ${
-                isScrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                <h1 className="text-lg font-heading font-bold">FAMILIA PUȘCAȘ</h1>
-                <p className="text-xs opacity-80">Legume din Ocolis</p>
+              <div className="transition-colors duration-300 text-gray-900">
+                <h1 className="text-lg font-heading font-bold">{locale === 'ro' ? 'Familia Pușcaș' : 'Pușcaș Family'}</h1>
+                <p className="text-xs opacity-80">{locale === 'ro' ? 'Legume din Ocolis' : 'Vegetables from Ocolis'}</p>
               </div>
             </Link>
 
@@ -81,11 +77,7 @@ export default function Navigation() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`font-medium transition-colors duration-300 hover:scale-105 ${
-                    isScrolled
-                      ? 'text-gray-700 hover:text-emerald-600'
-                      : 'text-white hover:text-lime-400'
-                  }`}
+                  className="font-medium transition-colors duration-300 hover:scale-105 text-gray-700 hover:text-emerald-600"
                 >
                   {item.label}
                 </a>
@@ -96,11 +88,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors duration-300 ${
-                isScrolled
-                  ? 'text-gray-700 hover:bg-gray-100'
-                  : 'text-white hover:bg-white/20'
-              }`}
+              className="lg:hidden p-2 rounded-lg transition-colors duration-300 text-gray-700 hover:bg-gray-100"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -136,8 +124,8 @@ export default function Navigation() {
               />
             </div>
             <div>
-              <h2 className="text-sm font-heading font-bold text-gray-900">FAMILIA PUȘCAȘ</h2>
-              <p className="text-xs text-gray-600">Legume din Ocolis</p>
+              <h2 className="text-sm font-heading font-bold text-gray-900">{locale === 'ro' ? 'Familia Pușcaș' : 'Pușcaș Family'}</h2>
+              <p className="text-xs text-gray-600">{locale === 'ro' ? 'Legume din Ocolis' : 'Vegetables from Ocolis'}</p>
             </div>
           </div>
           <button
@@ -164,10 +152,8 @@ export default function Navigation() {
         </div>
 
         {/* Language Switcher in Mobile Menu */}
-        <div className="px-6 py-4 border-t border-gray-100">
-          <div className="flex justify-center">
-            <LanguageSwitcher />
-          </div>
+        <div className="px-10 py-4 border-t border-gray-100">
+          <LanguageSwitcher />
         </div>
 
       </div>

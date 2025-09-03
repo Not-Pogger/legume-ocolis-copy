@@ -17,59 +17,27 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
+    <section id="home" className="relative h-screen w-screen max-w-none overflow-hidden">
       {/* Parallax Background */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 w-full h-full"
         style={{ transform: `translateY(${scrollY * 0.5}px)` }}
       >
         <Image
           src="/images/hero.jpg"
           alt="Fresh Vegetables"
           fill
-          className="object-cover"
+          className="object-cover w-full h-full"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-emerald-900/80" />
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute inset-0 z-10">
-        <motion.div
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 text-6xl"
-        >
-          🍅
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-40 right-20 text-5xl"
-        >
-          🌶️
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-40 left-20 text-4xl"
-        >
-          🥬
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 25, 0] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute bottom-60 right-10 text-5xl"
-        >
-          🍆
-        </motion.div>
-      </div>
-
       {/* Content */}
       <div className="relative z-20 h-full flex items-center justify-center">
-        <div className="container mx-auto px-4 text-center text-white">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <div className="animate-fade-in-up">
-            <h1 className="font-heading text-6xl md:text-8xl font-extrabold mb-4 bg-gradient-to-b from-white to-lime-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(163,230,53,0.8)]" style={{ fontWeight: 800, letterSpacing: '-0.1rem' }}>
+            <h1 className="font-heading text-6xl md:text-8xl font-extrabold mb-4 leading-relaxed py-4 bg-gradient-to-b from-white to-lime-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(163,230,53,0.8)]" style={{ fontWeight: 800, letterSpacing: '-0.1rem' }}>
               {t.hero.title}
             </h1>
           </div>
@@ -95,7 +63,8 @@ export default function Hero() {
             
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-white/15 backdrop-blur-lg text-white font-bold rounded-full border-2 border-white/40 transition-all hover:bg-white/25 hover:scale-105 hover:border-white/60 shadow-xl hover:shadow-2xl"
+              className="group relative inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/40 transition-all hover:bg-white/30 hover:scale-105 hover:border-white/60 shadow-xl hover:shadow-2xl"
+              style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
             >
               <Phone className="w-5 h-5" />
               <span>{t.hero.cta2}</span>

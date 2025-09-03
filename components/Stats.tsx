@@ -21,7 +21,7 @@ export default function Stats() {
   const stats = [
     {
       icon: Calendar,
-      value: 15,
+      value: 20,
       suffix: '+',
       label: t.stats.years,
       color: 'from-emerald-500 to-green-600',

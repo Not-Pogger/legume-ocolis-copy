@@ -64,11 +64,14 @@ export default function RootLayout({
   return (
     <html lang="ro" className={`${poppins.variable} ${schibstedGrotesk.variable}`}>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} antialiased m-0 p-0 w-full min-h-screen`}>
         <I18nProvider>
-          {children}
+          <main className="w-full m-0 p-0">
+            {children}
+          </main>
         </I18nProvider>
       </body>
     </html>

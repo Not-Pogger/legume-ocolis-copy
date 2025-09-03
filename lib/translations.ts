@@ -10,7 +10,7 @@ export const translations = {
     hero: {
       title: "Familia Pușcaș",
       subtitle: "Legume Proaspete din Ocolis",
-      description: "Direct de la producător, cultivate cu dragoste în Maramureș",
+      description: "Direct de la producător, cultivate cu dragoste în Maramureș pentru masa ta",
       cta1: "Vezi Produsele",
       cta2: "Contactează-ne",
     },
@@ -28,7 +28,6 @@ export const translations = {
       filterPeppers: "Ardei",
       filterOthers: "Altele",
       callForPrice: "Sunați pentru preț",
-      viewDetails: "Vezi Detalii",
       items: {
         tomatoes: {
           title: "Roșii",
@@ -39,8 +38,8 @@ export const translations = {
           description: "Ardei dulci, iuți, kapia și gogoșari",
         },
         eggplants: {
-          title: "Vânăte",
-          description: "Vânăte normale și vânăte poșetă",
+          title: "Vinete",
+          description: "Vinete normale și vinete poșetă",
         },
         cabbage: {
           title: "Varză",
@@ -96,6 +95,7 @@ export const translations = {
     contact: {
       title: "Contactează-ne",
       subtitle: "Suntem aici pentru tine",
+      socialMedia: "Urmărește-ne pe social media",
       phone: "Telefon",
       whatsapp: "WhatsApp",
       address: "Adresă",
@@ -136,7 +136,7 @@ export const translations = {
     hero: {
       title: "Pușcaș Family",
       subtitle: "Fresh Vegetables from Ocolis",
-      description: "Directly from the producer, grown with love in Maramureș",
+      description: "Directly from the producer, grown with love in Maramureș for your table",
       cta1: "View Products",
       cta2: "Contact Us",
     },
@@ -154,7 +154,6 @@ export const translations = {
       filterPeppers: "Peppers",
       filterOthers: "Others",
       callForPrice: "Call for price",
-      viewDetails: "View Details",
       items: {
         tomatoes: {
           title: "Tomatoes",
@@ -222,6 +221,7 @@ export const translations = {
     contact: {
       title: "Contact Us",
       subtitle: "We're here for you",
+      socialMedia: "Follow us on social media",
       phone: "Phone",
       whatsapp: "WhatsApp",
       address: "Address",

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Pagina nu a fost găsită</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #fef3c7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .tomato {
+            font-size: 120px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            75% { transform: translateY(-20px) rotate(-5deg); }
+        }
+        
+        .error-code {
+            font-size: 120px;
+            font-weight: bold;
+            background: linear-gradient(to right, #059669, #84cc16);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+        
+        .vegetables {
+            position: relative;
+            height: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .vegetable {
+            position: absolute;
+            font-size: 40px;
+        }
+        
+        .pepper {
+            left: 20%;
+            animation: bounce 4s ease-in-out infinite;
+        }
+        
+        .eggplant {
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 3.5s ease-in-out infinite;
+        }
+        
+        .lettuce {
+            right: 20%;
+            animation: bounce 5s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #059669, #84cc16);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
+        }
+        
+        .arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover .arrow {
+            transform: translateX(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 80px;
+            }
+            
+            .tomato {
+                font-size: 80px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+            
+            .vegetable {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tomato">🍅</div>
+        <div class="error-code">404</div>
+        <h1>Oops! Pagina nu a fost găsită</h1>
+        <p>Se pare că această pagină s-a rătăcit în grădină. Hai să te ducem înapoi acasă!</p>
+        
+        <div class="vegetables">
+            <span class="vegetable pepper">🌶️</span>
+            <span class="vegetable eggplant">🍆</span>
+            <span class="vegetable lettuce">🥬</span>
+        </div>
+        
+        <a href="/" class="btn">
+            <span class="arrow">←</span>
+            <span>Înapoi la pagina principală</span>
+            <span>🏠</span>
+        </a>
+    </div>
+</body>
+</html>

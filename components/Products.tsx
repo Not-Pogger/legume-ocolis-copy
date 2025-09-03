@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useI18n } from '@/lib/i18n-context';
-import { Phone, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function Products() {
@@ -155,18 +154,9 @@ export default function Products() {
                   <h3 className="text-2xl font-heading font-bold mb-2 text-gray-800" style={{letterSpacing: '-0.1rem'}}>
                     {product.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 font-body">
+                  <p className="text-gray-600 font-body">
                     {product.description}
                   </p>
-
-                  {/* CTA Button */}
-                  <a
-                    href="#contact"
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-emerald-500 to-lime-500 text-white font-body font-bold rounded-lg hover:shadow-lg transition-all hover:scale-105"
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span>{t.products.viewDetails}</span>
-                  </a>
                 </div>
               </div>
             </motion.div>

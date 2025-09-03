@@ -77,13 +77,19 @@ export default function Gallery() {
           {photos.slice(0, 12).map((photo, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="break-inside-avoid group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+              className="break-inside-avoid group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className={`relative ${getRandomHeight(index)} w-full`}>
+              <div 
+                className={`relative ${getRandomHeight(index)} w-full cursor-pointer`}
+                onClick={() => {
+                  setPhotoIndex(index);
+                  setIsOpen(true);
+                }}
+              >
                 <Image
                   src={photo.src}
                   alt={photo.alt}
@@ -91,18 +97,8 @@ export default function Gallery() {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button
-                    onClick={() => {
-                      setPhotoIndex(index);
-                      setIsOpen(true);
-                    }}
-                    className="absolute bottom-4 right-4 p-3 bg-white/20 backdrop-blur-md rounded-full hover:bg-white/30 transition-colors"
-                  >
-                    <Expand className="w-5 h-5 text-white" />
-                  </button>
-                </div>
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
           ))}

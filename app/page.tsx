@@ -8,7 +8,6 @@ import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
-      <LanguageSwitcher />
     </>
   );
 }
