@@ -27,19 +27,37 @@ export const translations = {
       filterTomatoes: "Roșii",
       filterPeppers: "Ardei",
       filterOthers: "Altele",
-      callForPrice: "Sunați pentru preț",
+      showMore: "Vezi și produsele indisponibile",
+      showLess: "Ascunde produsele indisponibile",
       items: {
         tomatoes: {
           title: "Roșii",
           description: "Multiple soiuri: Inima Boului, Ananas și multe altele",
         },
         peppers: {
-          title: "Ardei",
-          description: "Ardei dulci, iuți, kapia și gogoșari",
+          title: "Ardei Gras",
+          description: "Ardei gras, diverse culori",
+        },
+        hotPeppers: {
+          title: "Ardei Iuți",
+          description: "Ardei iuți pentru un plus de gust picant.",
+        },
+        semiHotPeppers: {
+          title: "Ardei Semi-iuți",
+          description: "Ardei cu iuțeală medie, perfecți pentru diverse mâncăruri.",
+        },
+        kapiaPeppers: {
+          title: "Ardei Kapia",
+          description: "Ardei kapia roșii, perfecți pentru copt",
+        },
+        gogosari: {
+          title: "Gogoșari",
+          description: "Gogoșari pentru murături și salate",
         },
         eggplants: {
           title: "Vinete",
           description: "Vinete normale și vinete poșetă",
+          status: "Indisponibil"
         },
         cabbage: {
           title: "Varză",
@@ -48,6 +66,7 @@ export const translations = {
         corn: {
           title: "Porumb",
           description: "Porumb tradițional crescut natural",
+          status: "Indisponibil"
         },
         potatoes: {
           title: "Cartofi",
@@ -56,20 +75,34 @@ export const translations = {
         cucumbers: {
           title: "Castraveți",
           description: "Castraveți proaspeți pentru salate și murături",
+          status: "Indisponibil"
         },
         watermelon: {
           title: "Lebeniță",
           description: "Lebeniță dulce și suculentă",
+          status: "Indisponibil"
         },
         spinach: {
           title: "Spanac",
           description: "Spanac proaspăt bogat în vitamine",
+          status: "În curând"
+        },
+        radishes: {
+          title: "Ridichi",
+          description: "Ridichi proaspete de sezon",
+          status: "Indisponibil"
+        },
+        onions: {
+          title: "Ceapă",
+          description: "Ceapă verde",
+          status: "Indisponibil"
         },
       },
     },
     gallery: {
       title: "Galerie Foto",
       subtitle: "Din grădina noastră direct pe masa ta",
+      seeAll: "Vezi toate fotografiile",
     },
     testimonials: {
       title: "Ce Spun Clienții",
@@ -113,6 +146,16 @@ export const translations = {
       callNow: "Sună Acum",
       sendMessage: "Trimite Mesaj",
       viewOnMap: "Vezi pe Hartă",
+      facebook: "Urmărește-ne pe Facebook",
+      form: {
+        name: "Nume",
+        email: "Email",
+        subject: "Subiect",
+        message: "Mesaj",
+        send: "Trimite Mesajul",
+        success: "Mesajul tău a fost trimis cu succes!",
+        error: "A apărut o eroare. Te rugăm să încerci din nou."
+      }
     },
     footer: {
       rights: "Toate drepturile rezervate",
@@ -123,6 +166,11 @@ export const translations = {
       title: "Oops! Pagina nu a fost găsită",
       subtitle: "Se pare că această roșie s-a pierdut în grădină...",
       backHome: "Înapoi Acasă",
+    },
+    announcement: {
+      title: "Anunț Important",
+      message: "Nu vom fi în piață în datele de 6 și 8 Septembrie.",
+      close: "Închide",
     },
   },
   en: {
@@ -153,19 +201,37 @@ export const translations = {
       filterTomatoes: "Tomatoes",
       filterPeppers: "Peppers",
       filterOthers: "Others",
-      callForPrice: "Call for price",
+      showMore: "Show unavailable products",
+      showLess: "Hide unavailable products",
       items: {
         tomatoes: {
           title: "Tomatoes",
           description: "Multiple varieties: Ox Heart, Pineapple and many more",
         },
         peppers: {
-          title: "Peppers",
-          description: "Sweet peppers, hot peppers, kapia and bell peppers",
+          title: "Bell Peppers",
+          description: "Bell peppers, various colors",
+        },
+        hotPeppers: {
+          title: "Hot Peppers",
+          description: "Hot and semi-hot peppers",
+        },
+        semiHotPeppers: {
+          title: "Semi-Hot Peppers",
+          description: "Medium spicy peppers, perfect for various dishes.",
+        },
+        kapiaPeppers: {
+          title: "Kapia Peppers",
+          description: "Red kapia peppers, perfect for roasting",
+        },
+        gogosari: {
+          title: "Gogosari Peppers",
+          description: "Gogosari for pickles and salads",
         },
         eggplants: {
           title: "Eggplants",
           description: "Regular eggplants and special varieties",
+          status: "Sold Out"
         },
         cabbage: {
           title: "Cabbage",
@@ -174,6 +240,7 @@ export const translations = {
         corn: {
           title: "Corn",
           description: "Traditional corn grown naturally",
+          status: "Sold Out"
         },
         potatoes: {
           title: "Potatoes",
@@ -182,20 +249,34 @@ export const translations = {
         cucumbers: {
           title: "Cucumbers",
           description: "Fresh cucumbers for salads and pickles",
+          status: "Sold Out"
         },
         watermelon: {
           title: "Watermelon",
           description: "Sweet and juicy watermelon",
+          status: "Sold Out"
         },
         spinach: {
           title: "Spinach",
           description: "Fresh spinach rich in vitamins",
+          status: "Coming Soon"
+        },
+        radishes: {
+          title: "Radishes",
+          description: "Fresh seasonal radishes",
+          status: "Sold Out"
+        },
+        onions: {
+          title: "Onions",
+          description: "Dry or green onions, depending on the season",
+          status: "Sold Out"
         },
       },
     },
     gallery: {
       title: "Photo Gallery",
       subtitle: "From our garden directly to your table",
+      seeAll: "See all photos",
     },
     testimonials: {
       title: "What Customers Say",
@@ -239,6 +320,16 @@ export const translations = {
       callNow: "Call Now",
       sendMessage: "Send Message",
       viewOnMap: "View on Map",
+      facebook: "Follow us on Facebook",
+      form: {
+        name: "Name",
+        email: "Email",
+        subject: "Subject",
+        message: "Message",
+        send: "Send Message",
+        success: "Your message has been sent successfully!",
+        error: "An error occurred. Please try again."
+      }
     },
     footer: {
       rights: "All rights reserved",
@@ -249,6 +340,11 @@ export const translations = {
       title: "Oops! Page not found",
       subtitle: "It seems this tomato got lost in the garden...",
       backHome: "Back Home",
+    },
+    announcement: {
+      title: "Important Announcement",
+      message: "We will not be at the market on September 6th and 8th.",
+      close: "Close",
     },
   },
 };

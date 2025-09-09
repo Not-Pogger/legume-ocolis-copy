@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useI18n } from '@/lib/i18n-context';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
@@ -8,21 +8,62 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 export default function Testimonials() {
   const { t } = useI18n();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState('next');
   const testimonials = t.testimonials.reviews;
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
+  const startTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
+      setDirection('next');
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 6000);
-    return () => clearInterval(timer);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, [testimonials.length]);
 
   const nextTestimonial = () => {
+    setDirection('next');
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    startTimer();
   };
 
   const prevTestimonial = () => {
+    setDirection('prev');
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    startTimer();
+  };
+
+  const handleIndicatorClick = (index: number) => {
+    setDirection(index > currentIndex ? 'next' : 'prev');
+    setCurrentIndex(index);
+    startTimer();
+  };
+
+  const variants = {
+    enter: (direction: string) => ({
+      x: direction === 'next' ? 100 : -100,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: string) => ({
+      zIndex: 0,
+      x: direction === 'next' ? -100 : 100,
+      opacity: 0,
+    }),
   };
 
   return (
@@ -46,13 +87,15 @@ export default function Testimonials() {
             {/* Main Content Area */}
             <div className="relative min-h-[420px] md:min-h-[380px] flex items-center justify-center">
               
-              <AnimatePresence mode="wait">
+              <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={currentIndex}
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="relative z-10 px-4 md:px-20 py-8 text-center"
                 >
                   {/* Large Quote Icon */}
@@ -103,7 +146,7 @@ export default function Testimonials() {
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentIndex(index)}
+                    onClick={() => handleIndicatorClick(index)}
                     className="relative h-1.5 rounded-full overflow-hidden bg-gray-200 transition-all duration-300"
                     style={{ width: index === currentIndex ? '48px' : '24px' }}
                     aria-label={`Go to testimonial ${index + 1}`}

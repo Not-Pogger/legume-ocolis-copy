@@ -1,0 +1,12 @@
+{
+  "announcement": {
+    "title": "Important Announcement",
+    "message": "We will not be in the market on September 6th and 8th.",
+    "close": "Close"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Discover the freshness",
+    "seeAll": "See all photos"
+  }
+}

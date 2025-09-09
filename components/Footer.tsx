@@ -10,7 +10,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-br from-emerald-900 via-green-800 to-lime-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 text-6xl">🍅</div>
         <div className="absolute top-20 right-20 text-5xl">🌶️</div>
@@ -19,10 +18,8 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-6 py-16 relative z-10">
-        {/* Main Content */}
         <div className="grid lg:grid-cols-4 gap-12 mb-12">
           
-          {/* Brand Section */}
           <div className="lg:col-span-2 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6">
             <div className="relative w-20 h-20 flex-shrink-0">
               <div className="absolute inset-0 bg-lime-400/30 rounded-full blur-2xl animate-pulse"></div>
@@ -47,7 +44,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Social Media */}
           <div className="text-center md:text-right space-y-4">
             <h4 className="text-lg font-heading font-semibold text-lime-200 mb-4" style={{letterSpacing: '-0.05rem'}}>
               {t.contact.socialMedia}
@@ -74,41 +70,32 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact Info */}
           <div className="text-center md:text-right space-y-4">
             <h4 className="text-lg font-heading font-semibold text-lime-200 mb-4" style={{letterSpacing: '-0.05rem'}}>
               Contact Rapid
             </h4>
-            <div className="space-y-2 text-white/90 font-body">
-              <p className="flex items-center justify-center md:justify-end gap-2">
-                <Phone className="w-4 h-4" />
-                0766.597.844
-              </p>
-              <p className="flex items-center justify-center md:justify-end gap-2">
-                <Phone className="w-4 h-4" />
-                0773.844.621
-              </p>
-              <p className="flex items-center justify-center md:justify-end gap-2">
-                <MapPin className="w-4 h-4" />
-                Strada Râului nr. 15, Ocolis
-              </p>
+            <div className="inline-grid grid-cols-[auto_1fr] gap-x-3 text-left text-white/90 font-body">
+              <Phone className="w-4 h-4 mt-1" />
+              <span>0766.597.844</span>
+              
+              <Phone className="w-4 h-4 mt-1" />
+              <span>0773.844.621</span>
+              
+              <MapPin className="w-4 h-4 mt-1" />
+              <span>Strada Râului nr. 15, Ocolis</span>
             </div>
           </div>
 
         </div>
 
-        {/* Divider */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-lime-400/50 to-transparent mb-8"></div>
 
-        {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           
-          {/* Copyright */}
           <p className="text-white/80 font-body text-sm md:text-base">
             © {currentYear} {locale === 'ro' ? 'Familia Pușcaș' : 'Pușcaș Family'}. {t.footer.rights}.
           </p>
 
-          {/* Made with love */}
           <div className="flex items-center gap-2 text-white/70 font-body text-sm md:text-base">
             <span>{t.footer.madeWith}</span>
             <Heart className="w-5 h-5 text-red-400 fill-red-400 animate-pulse drop-shadow-lg" />

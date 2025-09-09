@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useI18n } from '@/lib/i18n-context';
 import { ChevronDown, Phone, ShoppingBasket } from 'lucide-react';
+import { GradientButton } from '@/components/ui/GradientButton';
 
 export default function Hero() {
   const { t } = useI18n();
@@ -15,6 +16,9 @@ export default function Hero() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const greenColors = { start: '#10b981', end: '#84cc16', from: '#34d399', to: '#a3e635' };
+  const transparentColors = { start: 'rgba(255, 255, 255, 0.2)', end: 'rgba(255, 255, 255, 0.3)', from: '#10b981', to: 'transparent' };
 
   return (
     <section id="home" className="relative h-screen w-screen max-w-none overflow-hidden">
@@ -52,23 +56,23 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
-            <a
+            <GradientButton
               href="#products"
-              className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-lime-500 text-white font-bold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(163,230,53,0.5)]"
+              colors={greenColors}
+              className="group relative inline-flex items-center gap-2 px-8 py-4 text-white font-bold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(163,230,53,0.5)]"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-lime-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
               <ShoppingBasket className="relative z-10 w-5 h-5" />
               <span className="relative z-10">{t.hero.cta1}</span>
-            </a>
+            </GradientButton>
             
-            <a
+            <GradientButton
               href="#contact"
-              className="group relative inline-flex items-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/40 transition-all hover:bg-white/30 hover:scale-105 hover:border-white/60 shadow-xl hover:shadow-2xl"
-              style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
+              colors={transparentColors}
+              className="group relative inline-flex items-center gap-2 px-8 py-4 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/40 transition-all hover:scale-105 hover:border-white/60 shadow-xl hover:shadow-2xl backdrop-blur-custom"
             >
               <Phone className="w-5 h-5" />
               <span>{t.hero.cta2}</span>
-            </a>
+            </GradientButton>
           </div>
         </div>
       </div>

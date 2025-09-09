@@ -51,8 +51,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #10b981, #a3e635);
-  border-radius: 5px;
+  background: linear-gradient(180deg, #059669, #84cc16);
+}
+
+.backdrop-blur-custom {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -1,0 +1,12 @@
+{
+  "announcement": {
+    "title": "Anunț Important",
+    "message": "Nu vom fi în piață în datele de 6 și 8 Septembrie.",
+    "close": "Închide"
+  },
+  "gallery": {
+    "title": "Galerie",
+    "subtitle": "Descoperă prospețimea",
+    "seeAll": "Vezi toate fotografiile"
+  }
+}
