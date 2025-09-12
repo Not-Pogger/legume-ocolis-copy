@@ -63,11 +63,20 @@ const itemVariants = {
   },
 };
 
-const GalleryImage = ({ photo, index, onClick }) => {
+interface GalleryImageProps {
+  photo: {
+    src: string;
+    alt: string;
+  };
+  index: number;
+  onClick: () => void;
+}
+
+const GalleryImage = ({ photo, index, onClick }: GalleryImageProps) => {
   const [pos, setPos] = useState({ x: '0px', y: '0px' });
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const { currentTarget } = e;
     const rect = currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
