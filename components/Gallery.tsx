@@ -63,11 +63,51 @@ const itemVariants = {
   },
 };
 
+const GalleryImage = ({ photo, index, onClick }) => {
+  const [pos, setPos] = useState({ x: '0px', y: '0px' });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e) => {
+    const { currentTarget } = e;
+    const rect = currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setPos({ x: `${x}px`, y: `${y}px` });
+  };
+
+  const style = {
+    backgroundImage: isHovered 
+      ? `radial-gradient(circle at ${pos.x} ${pos.y}, rgba(255, 255, 255, 0.25), transparent)` 
+      : 'none',
+  };
+
+  return (
+    <motion.div
+      key={index}
+      variants={itemVariants}
+      className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-lg cursor-pointer"
+      onClick={onClick}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        className="object-cover group-hover:scale-110 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0" style={style} />
+    </motion.div>
+  );
+};
+
 export default function Gallery() {
   const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const greenColors = { start: '#10b981', end: '#84cc16', from: '#34d399', to: '#a3e635' };
+  const greenColors = { start: '#10b981', end: '#84cc16', from: '#84cc16', to: '#10b981' };
 
   return (
     <section id="gallery" className="py-20 bg-gradient-to-br from-gray-50 to-emerald-50">
@@ -93,23 +133,15 @@ export default function Gallery() {
           viewport={{ once: true, amount: 0.2 }}
         >
           {photos.slice(0, 12).map((photo, index) => (
-            <motion.div
+            <GalleryImage
               key={index}
-              variants={itemVariants}
-              className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-lg cursor-pointer"
+              photo={photo}
+              index={index}
               onClick={() => {
                 setPhotoIndex(index);
                 setIsOpen(true);
               }}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
+            />
           ))}
         </motion.div>
 

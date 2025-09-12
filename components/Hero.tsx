@@ -17,7 +17,7 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const greenColors = { start: '#10b981', end: '#84cc16', from: '#34d399', to: '#a3e635' };
+  const greenColors = { start: '#10b981', end: '#84cc16', from: '#84cc16', to: '#10b981' };
   const transparentColors = { start: 'rgba(255, 255, 255, 0.2)', end: 'rgba(255, 255, 255, 0.3)', from: '#10b981', to: 'transparent' };
 
   return (

@@ -26,7 +26,7 @@ const itemVariants = {
 export default function Contact() {
   const { t } = useI18n();
   const greenColors = { start: '#10b981', end: '#84cc16', from: '#84cc16', to: '#10b981' };
-  const blueColors = { start: '#2563eb', end: '#06b6d4', from: 'rgba(255,255,255,0.8)', to: '#2563eb' };
+    const blueColors = { start: '#2563eb', end: '#06b6d4', from: '#06b6d4', to: '#2563eb' };
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-emerald-50/30 via-white to-lime-50/30">

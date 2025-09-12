@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       fontFamily: {
         'heading': ['var(--font-schibsted-grotesk)', 'Schibsted Grotesk', 'sans-serif'],
         'body': ['var(--font-poppins)', 'Poppins', 'system-ui', 'sans-serif'],

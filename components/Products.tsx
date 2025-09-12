@@ -77,7 +77,7 @@ export default function Products() {
   const { t } = useI18n();
   const [activeFilter, setActiveFilter] = useState('all');
   const [showUnavailable, setShowUnavailable] = useState(false);
-  const greenColors = { start: '#10b981', end: '#84cc16', from: '#34d399', to: '#a3e635' };
+  const greenColors = { start: '#10b981', end: '#84cc16', from: '#84cc16', to: '#10b981' };
 
   const products = useMemo(() => {
     const productsData = [
@@ -140,23 +140,16 @@ export default function Products() {
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {filters.map((filter) => {
             const isActive = activeFilter === filter.id;
-            return isActive ? (
+            const grayColors = { start: '#f3f4f6', end: '#e5e7eb', from: '#d1d5db', to: '#e5e7eb' };
+            return (
               <GradientButton
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                colors={greenColors}
-                className='px-6 py-2 rounded-full font-body font-medium text-white shadow-lg scale-105'
+                colors={isActive ? greenColors : grayColors}
+                className={`px-6 py-2 rounded-full font-body font-medium transition-all ${isActive ? 'text-white shadow-lg scale-105' : 'text-gray-700'}`}
               >
                 {filter.label}
               </GradientButton>
-            ) : (
-              <button
-                key={filter.id}
-                onClick={() => setActiveFilter(filter.id)}
-                className='px-6 py-2 rounded-full font-body font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200'
-              >
-                {filter.label}
-              </button>
             )
           })}
         </div>
@@ -172,15 +165,14 @@ export default function Products() {
         {getFiltered(unavailableProducts).length > 0 && (
           <div className="text-center mt-12">
             {!showUnavailable ? (
-              <motion.button
+              <GradientButton
                 key="show"
                 onClick={() => setShowUnavailable(true)}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-gray-200 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition-all"
+                colors={greenColors}
+                className="bg-gray-200 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition-all"
               >
                 {t.products.showMore || 'Vezi și produsele indisponibile'}
-              </motion.button>
+              </GradientButton>
             ) : (
               <AnimatePresence>
                 <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
@@ -195,15 +187,14 @@ export default function Products() {
 
         {showUnavailable && getFiltered(unavailableProducts).length > 0 && (
            <div className="text-center mt-12">
-              <motion.button
+              <GradientButton
                 key="hide"
                 onClick={() => setShowUnavailable(false)}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-gray-200 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition-all"
+                colors={greenColors}
+                className="bg-gray-200 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition-all"
               >
                 {t.products.showLess || 'Ascunde produsele indisponibile'}
-              </motion.button>
+              </GradientButton>
             </div>
         )}
       </div>
