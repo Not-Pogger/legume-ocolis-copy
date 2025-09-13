@@ -41,7 +41,9 @@ const ProductCard = ({ product, index }: ProductCardProps) => (
           fill
           className={cn(
             "object-cover group-hover:scale-110 transition-transform duration-500",
-            !product.price && "grayscale"
+            !product.price && "grayscale",
+            product.id === "kapiaPeppers" && "object-position-kapia",
+            product.id === "semiHotPeppers" && "object-position-semi-hot"
           )}
         />
         {product.price && (
@@ -82,20 +84,20 @@ export default function Products() {
   const products = useMemo(() => {
     const productsData = [
       { id: 'tomatoes', category: 'tomatoes', image: '/images/rosii1.jpg', emoji: '🍅', ...t.products.items.tomatoes },
-      { id: 'peppers', category: 'peppers', image: '/images/ardei1.jpg', emoji: '🌶️', ...t.products.items.peppers },
-      { id: 'hotPeppers', category: 'peppers', image: '/images/ardei2.jpg', emoji: '🌶️', ...t.products.items.hotPeppers },
-      { id: 'semiHotPeppers', category: 'peppers', image: '/images/ardei5.jpg', emoji: '🌶️', ...t.products.items.semiHotPeppers },
-      { id: 'kapiaPeppers', category: 'peppers', image: '/images/ardei3.jpg', emoji: '🌶️', ...t.products.items.kapiaPeppers },
-      { id: 'gogosari', category: 'peppers', image: '/images/ardei4.jpg', emoji: '🌶️', ...t.products.items.gogosari },
+      { id: 'peppers', category: 'peppers', image: '/images/ardei1.jpg', emoji: '🫑', ...t.products.items.peppers },
+      { id: 'hotPeppers', category: 'peppers', image: '/images/arde-iuiti1.jpg', emoji: '🌶️', ...t.products.items.hotPeppers },
+      { id: 'semiHotPeppers', category: 'peppers', image: '/images/ardei-semi-iuti1.jpg', emoji: '🌶️', ...t.products.items.semiHotPeppers },
+      { id: 'kapiaPeppers', category: 'peppers', image: '/images/kapia1.jpg', emoji: '🌶️', ...t.products.items.kapiaPeppers },
+      { id: 'gogosari', category: 'peppers', image: '/images/gogogari1.jpg', emoji: '🌶️', ...t.products.items.gogosari },
       { id: 'eggplants', category: 'others', image: '/images/vinete1.jpg', emoji: '🍆', ...t.products.items.eggplants },
-      { id: 'cabbage', category: 'others', image: '/images/varza2.jpg', emoji: '🥬', ...t.products.items.cabbage },
+      { id: 'cabbage', category: 'others', image: '/images/varza1.jpg', emoji: '🥬', ...t.products.items.cabbage },
       { id: 'corn', category: 'others', image: '/images/porumb1.jpg', emoji: '🌽', ...t.products.items.corn },
       { id: 'potatoes', category: 'others', image: '/images/cartofi1.jpg', emoji: '🥔', ...t.products.items.potatoes },
       { id: 'cucumbers', category: 'others', image: '/images/castraveti1.jpg', emoji: '🥒', ...t.products.items.cucumbers },
       { id: 'watermelon', category: 'others', image: '/images/lebenita1.jpg', emoji: '🍉', ...t.products.items.watermelon },
       { id: 'spinach', category: 'others', image: '/images/spanac1.jpg', emoji: '🥬', ...t.products.items.spinach },
-      { id: 'radishes', category: 'others', image: '/images/ridichi1.jpg', emoji: '🤷', ...t.products.items.radishes },
-      { id: 'onions', category: 'others', image: '/images/ceapa1.jpg', emoji: '🧅', ...t.products.items.onions },
+      { id: 'radishes', category: 'others', image: '/images/ridichi1.jpg', emoji: '🫜', ...t.products.items.radishes },
+      { id: 'onions', category: 'others', image: '/images/ceapa1.jpg', emoji: '🧅', ...t.products.items.onions }
     ];
     return productsData.map(p => ({
       ...p,

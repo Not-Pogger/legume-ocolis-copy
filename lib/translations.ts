@@ -36,7 +36,7 @@ export const translations = {
         },
         peppers: {
           title: "Ardei Gras",
-          description: "Ardei gras, diverse culori",
+          description: "Ardei gras, galben, dulce și proaspăt, perfect pentru salate.",
         },
         hotPeppers: {
           title: "Ardei Iuți",
@@ -210,7 +210,7 @@ export const translations = {
         },
         peppers: {
           title: "Bell Peppers",
-          description: "Bell peppers, various colors",
+          description: "Vibrant yellow bell peppers, sweet and fresh, ideal for adding a sunny touch to your salads.",
         },
         hotPeppers: {
           title: "Hot Peppers",

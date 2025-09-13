@@ -62,3 +62,11 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #059669, #84cc16);
 }
+
+.object-position-kapia {
+  object-position: bottom;
+}
+
+.object-position-semi-hot {
+  object-position: 50% 30%;
+}
